@@ -1,0 +1,23 @@
+{
+    "$schema": "http://schemas.botframework.com/schemas/skill-manifest.schema",
+    "name": "EchoBotSkill",
+    "description": "A skill that echoes back user messages.",
+    "endpoint": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
+    "language": "en",
+    "triggers": [
+        {
+            "intent": "EchoIntent",
+            "phrases": [
+                "echo",
+                "repeat",
+                "say"
+            ]
+        }
+    ],
+    "messages": [
+        {
+            "type": "message",
+            "text": "You said: {userMessage}"
+        }
+    ]
+}
