@@ -1,32 +1,45 @@
 {
-    "$schema": "https://schemas.botframework.com/schemas/skills/v2.1/skill-manifest.json",
-    "name": "GetUserInfo",
-    "description": "Gets user information from a Power Automate flow",
-    "endpoint": {
-      "protocol": "https",
-      "url": "https://prod-19.centralindia.logic.azure.com:443/workflows/a264fb84b2824e4fb4fc02f69b698b35/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=IjtcHktwQGZ0ZmB9cj8VzVe_HvNcU3TZIxDsRhck7U0",
-      "method": "POST"
-    },
-    "actions": [
-      {
-        "id": "getUser",
-        "definition": {
-          "description": "Get a user by name",
-          "parameters": [
-            {
-              "name": "Name",
-              "type": "string",
-              "required": true
-            }
-          ],
-          "responses": [
-            {
-              "description": "The user info response",
-              "type": "object"
-            }
-          ]
+  "$schema": "https://schema.copilotstudio.microsoft.com/v1.0/skill-manifest.json",
+  "name": "GetWeatherData",
+  "description": "Fetch weather information based on city",
+  "authentication": {
+    "type": "none"
+  },
+  "actions": [
+    {
+      "name": "GetWeather",
+      "description": "Gets weather for a given city",
+      "inputs": [
+        {
+          "name": "city",
+          "description": "Name of the city",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "temperature",
+          "description": "Temperature in Celsius",
+          "type": "number"
+        },
+        {
+          "name": "condition",
+          "description": "Weather condition",
+          "type": "string"
+        }
+      ],
+      "invoke": {
+        "method": "POST",
+        "url": "https://<your-api-endpoint>/weather",
+        "body": {
+          "city": "{{city}}"
+        },
+        "response": {
+          "temperature": "{{temperature}}",
+          "condition": "{{condition}}"
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
