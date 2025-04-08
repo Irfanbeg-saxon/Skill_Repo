@@ -1,6 +1,8 @@
 {
-    "$schema": "http://schemas.botframework.com/schemas/skill-manifest.schema",
+    "$schema": "https://schema.botframework.com/schemas/skill-manifest-2.0.json",
     "name": "EchoBotSkill",
+    "id": "EchoBot-skill",
+    "version": "1.0",
     "description": "A skill that echoes back user messages.",
     "endpoint": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
     "language": "en",
