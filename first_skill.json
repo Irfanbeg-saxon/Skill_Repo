@@ -1,57 +1,59 @@
 {
-  "$schema": "https://schemas.botframework.com/schemas/skills/v2.2/skill-manifest.json",
-  "$id": "EchoBotSkill",
-  "name": "EchoBotSkill",
-  "version": "1.0",
-  "description": "A skill that echoes back user messages.",
-  "publisherName": "YourPublisherName",
-  "privacyUrl": "https://your-skill-domain.com/privacy",
-  "copyright": "Copyright (c) Your Company. All rights reserved.",
-  "license": "",
-  "iconUrl": "https://your-skill-domain.com/icon.png",
-  "tags": ["echo", "sample", "bot"],
-  "endpoints": [
-    {
-      "name": "default",
-      "protocol": "BotFrameworkV3",
-      "description": "Default endpoint for EchoBotSkill",
-      "endpointUrl": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
-      "msAppId": "00000000-0000-0000-0000-000000000000"
-    }
-  ],
-  "dispatchModels": {
-    "languages": {
-      "en": [
+    "$schema": "https://schemas.botframework.com/schemas/skills/v2.2/skill-manifest.json",
+    "$id": "EchoBotSkill",
+    "name": "EchoBotSkill",
+    "version": "1.0",
+    "description": "A skill that echoes back user messages.",
+    "publisherName": "Your Name or Company",
+    "privacyUrl": "https://yourprivacyurl.com/privacy.html",
+    "copyright": "Copyright (c) Your Company. All rights reserved.",
+    "license": "Your License Information",
+    "iconUrl": "skillIcon.png",
+    "tags": [
+        "echo",
+        "sample",
+        "bot"
+    ],
+    "endpoints": [
         {
-          "name": "EchoBotSkill LU (English)",
-          "contentType": "application/lu",
-          "url": "https://your-skill-domain.com/echobot-en.lu",
-          "description": "LU model for EchoBotSkill"
+            "name": "default",
+            "protocol": "BotFrameworkV3",
+            "description": "Production endpoint for EchoBotSkill",
+            "endpointUrl": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
+            "msAppId": "00000000-0000-0000-0000-000000000000"
         }
-      ]
+    ],
+    "dispatchModels": {
+        "languages": {
+            "en": [
+                {
+                    "name": "EchoBotSkill LU (English)",
+                    "contentType": "application/lu",
+                    "url": "http://sample.com/EchoBotSkill-en.lu",
+                    "description": "English language model for the EchoBotSkill"
+                }
+            ]
+        },
+        "intents": [
+            "EchoIntent"
+        ]
     },
-    "intents": ["EchoIntent"]
-  },
-  "activities": {
-    "EchoIntent": {
-      "description": "Echoes back what the user says",
-      "type": "message",
-      "name": "EchoIntent",
-      "resultValue": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string",
-            "description": "Echoed text from the user"
-          }
+    "activities": {
+        "message": {
+            "type": "message",
+            "description": "Receives the user's utterance and attempts to resolve it using the skill's LU models"
+        },
+        "typing": {
+            "type": "typing"
+        },
+        "conversationUpdate": {
+            "type": "conversationUpdate"
         }
-      }
     },
-    "message": {
-      "type": "message",
-      "description": "Default message activity"
-    }
-  },
-  "activitiesSent": {},
-  "definitions": {}
+    "messages": [
+        {
+            "type": "message",
+            "text": "You said: {userMessage}"
+        }
+    ]
 }
