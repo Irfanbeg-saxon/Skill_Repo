@@ -19,7 +19,7 @@
             "name": "default",
             "protocol": "BotFrameworkV3",
             "description": "Production endpoint for EchoBotSkill",
-            "endpointUrl": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
+            "endpointUrl": "https://df6a-115-113-152-149.ngrok-free.app/api/messages",
             "msAppId": "00000000-0000-0000-0000-000000000000"
         }
     ],
