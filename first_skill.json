@@ -1,25 +1,57 @@
 {
-    "$schema": "https://schema.botframework.com/schemas/skill-manifest-2.0.json",
-    "name": "EchoBotSkill",
-    "id": "EchoBot-skill",
-    "version": "1.0",
-    "description": "A skill that echoes back user messages.",
-    "endpoint": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
-    "language": "en",
-    "triggers": [
+  "$schema": "https://schemas.botframework.com/schemas/skills/v2.2/skill-manifest.json",
+  "$id": "EchoBotSkill",
+  "name": "EchoBotSkill",
+  "version": "1.0",
+  "description": "A skill that echoes back user messages.",
+  "publisherName": "YourPublisherName",
+  "privacyUrl": "https://your-skill-domain.com/privacy",
+  "copyright": "Copyright (c) Your Company. All rights reserved.",
+  "license": "",
+  "iconUrl": "https://your-skill-domain.com/icon.png",
+  "tags": ["echo", "sample", "bot"],
+  "endpoints": [
+    {
+      "name": "default",
+      "protocol": "BotFrameworkV3",
+      "description": "Default endpoint for EchoBotSkill",
+      "endpointUrl": "https://6b21-115-113-152-149.ngrok-free.app/api/messages",
+      "msAppId": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "dispatchModels": {
+    "languages": {
+      "en": [
         {
-            "intent": "EchoIntent",
-            "phrases": [
-                "echo",
-                "repeat",
-                "say"
-            ]
+          "name": "EchoBotSkill LU (English)",
+          "contentType": "application/lu",
+          "url": "https://your-skill-domain.com/echobot-en.lu",
+          "description": "LU model for EchoBotSkill"
         }
-    ],
-    "messages": [
-        {
-            "type": "message",
-            "text": "You said: {userMessage}"
+      ]
+    },
+    "intents": ["EchoIntent"]
+  },
+  "activities": {
+    "EchoIntent": {
+      "description": "Echoes back what the user says",
+      "type": "message",
+      "name": "EchoIntent",
+      "resultValue": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Echoed text from the user"
+          }
         }
-    ]
+      }
+    },
+    "message": {
+      "type": "message",
+      "description": "Default message activity"
+    }
+  },
+  "activitiesSent": {},
+  "definitions": {}
 }
