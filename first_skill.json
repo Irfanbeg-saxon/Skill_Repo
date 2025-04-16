@@ -19,7 +19,7 @@
             "name": "default",
             "protocol": "BotFrameworkV3",
             "description": "Production endpoint for EchoBotSkill",
-            "endpointUrl": "https://e81c-115-113-152-149.ngrok-free.app/api/messages",
+            "endpointUrl": "https://85b5-115-113-152-149.ngrok-free.app/api/messages",
             "msAppId": "8bbbb7fe-8393-4e8b-b965-78c239d8d2ab"
         }
     ],
@@ -50,10 +50,19 @@
             "type": "conversationUpdate"
         }
     },
-    "messages": [
-        {
-            "type": "message",
-            "text": "You said: {userMessage}"
+    "activitiesSent": {
+        "echoResponse": {
+            "type": "event",
+            "name": "EchoResponse",
+            "description": "Event sent by the skill to echo back the user's message",
+            "value": {
+                "type": "object",
+                "properties": {
+                    "userMessage": {
+                        "type": "string"
+                    }
+                }
+            }
         }
-    ]
+    }
 }
