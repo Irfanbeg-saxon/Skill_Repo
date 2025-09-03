@@ -1,68 +1,12 @@
 {
-    "$schema": "https://schemas.botframework.com/schemas/skills/v2.2/skill-manifest.json",
-    "$id": "EchoBotSkill",
-    "name": "EchoBotSkill",
-    "version": "1.0",
-    "description": "A skill that echoes back user messages.",
-    "publisherName": "Your Name or Company",
-    "privacyUrl": "https://yourprivacyurl.com/privacy.html",
-    "copyright": "Copyright (c) Your Company. All rights reserved.",
-    "license": "Your License Information",
-    "iconUrl": "skillIcon.png",
-    "tags": [
-        "echo",
-        "sample",
-        "bot"
-    ],
-    "endpoints": [
-        {
-            "name": "default",
-            "protocol": "BotFrameworkV3",
-            "description": "Production endpoint for EchoBotSkill",
-            "endpointUrl": "https://85b5-115-113-152-149.ngrok-free.app/api/messages",
-            "msAppId": "8bbbb7fe-8393-4e8b-b965-78c239d8d2ab"
-        }
-    ],
-    "dispatchModels": {
-        "languages": {
-            "en": [
-                {
-                    "name": "EchoBotSkill LU (English)",
-                    "contentType": "application/lu",
-                    "url": "http://sample.com/EchoBotSkill-en.lu",
-                    "description": "English language model for the EchoBotSkill"
-                }
-            ]
-        },
-        "intents": [
-            "EchoIntent"
-        ]
-    },
-    "activities": {
-        "message": {
-            "type": "message",
-            "description": "Receives the user's utterance and attempts to resolve it using the skill's LU models"
-        },
-        "typing": {
-            "type": "typing"
-        },
-        "conversationUpdate": {
-            "type": "conversationUpdate"
-        }
-    },
-    "activitiesSent": {
-        "echoResponse": {
-            "type": "event",
-            "name": "EchoResponse",
-            "description": "Event sent by the skill to echo back the user's message",
-            "value": {
-                "type": "object",
-                "properties": {
-                    "userMessage": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
+  "name": "MyAspNetSkill",
+  "msaAppId": "7a6ef56e-ac92-4311-8f47-94c93551f97c",
+  "endpoint": "https://9f8239e1fadd.ngrok-free.app/api/Skill/invoke",
+  "activities": [
+    {
+      "id": "greetUser ",
+      "description": "Greet the user",
+      "type": "message"
     }
+  ]
 }
